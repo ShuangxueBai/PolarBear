@@ -5,10 +5,6 @@
 
 using namespace std;
 
-const struct aiScene* g_scene = nullptr;
-GLuint scene_list = 0;
-
-
 static void error_callBack(int error, const char* description)
 {
 	fputs(description, stderr);
@@ -67,7 +63,7 @@ int main(int argc, char** argv)
 
 	glfwMakeContextCurrent(window);
 
-	glfwSetKeyCallback(window,key_callBack);
+	glfwSetKeyCallback(window, key_callBack);
 
 	GLenum err = glewInit();
 	if (GLEW_OK != err)
@@ -79,16 +75,6 @@ int main(int argc, char** argv)
 
 	while (!glfwWindowShouldClose(window))
 	{
-		glBegin(GL_TRIANGLES);
-		glColor3f(1.0, 0.0, 0.0);
-		glVertex3f(0.0, 1.0, 0.0);
-		glColor3f(0.0, 1.0, 0.0);
-		glVertex3f(-1.0, -1.0, 0.0);
-		glColor3f(0.0, 0.0, 1.0);
-		glVertex3f(1.0, -1.0, 0.0);
-
-		glEnd();
-
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
@@ -101,3 +87,9 @@ int main(int argc, char** argv)
 	return 0;
 
 }
+
+
+
+
+
+
