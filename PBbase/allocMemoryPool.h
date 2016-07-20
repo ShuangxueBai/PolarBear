@@ -21,7 +21,7 @@ struct MemoryBlock
 
 struct MemoryList 
 {
-	int _size;
+	unsigned int _size;
 	MemoryList* _next;
 	MemoryBlock* _free;
 	MemoryBlock* _freeLast;
@@ -44,7 +44,7 @@ public:
 	~AllocMemoryPool();
 	void releaseMemoryPool();
 
-	void* allocateBuffer(size_t size);
+	void* allocateBuffer(const unsigned int& size);
 	bool  freeBuffer(void* pBuffer);
 private:
 	AllocMemoryPool();
