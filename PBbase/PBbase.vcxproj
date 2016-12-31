@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -22,31 +22,32 @@
     <ProjectGuid>{DE634664-BCF4-4DD1-8236-7B9B72798F12}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>PBbase</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -71,12 +72,16 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -100,11 +105,24 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PBBASE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)3rdparty\inc</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Platform);$(SolutionDir)\3rdparty\lib</AdditionalLibraryDirectories>
+      <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
+      <ImportLibrary>$(IntDir)$(TargetName).lib</ImportLibrary>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(IntDir)$(TargetName).lib $(SolutionDir)lib\$(Platform)\$(TargetName).lib</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message> copy file : $(IntDir)$(TargetName).lib -----&gt; $(SolutionDir)lib\$(Platform)\$(TargetName).lib </Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -134,23 +152,57 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PBBASE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)3rdparty\inc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Platform);$(SolutionDir)\3rdparty\lib</AdditionalLibraryDirectories>
+      <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
+      <ImportLibrary>$(IntDir)$(TargetName).lib</ImportLibrary>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(IntDir)$(TargetName).lib $(SolutionDir)lib\$(Platform)\$(TargetName).lib</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message> copy file : $(IntDir)$(TargetName).lib -----&gt; $(SolutionDir)lib\$(Platform)\$(TargetName).lib </Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="allocMemoryPool.h" />
-    <ClInclude Include="base.h" />
-    <ClInclude Include="platform.h" />
-    <ClInclude Include="type.h" />
+    <ClCompile Include="PBbase.cpp" />
+    <ClCompile Include="PBdebugHelper.cpp" />
+    <ClCompile Include="PBmath.cpp" />
+    <ClCompile Include="PBmemAllocation.cpp" />
+    <ClCompile Include="PBmemAllocationPool.cpp" />
+    <ClCompile Include="PBobject.cpp" />
+    <ClCompile Include="PBref.cpp" />
+    <ClCompile Include="PBstring.cpp" />
+    <ClCompile Include="PBwindow.cpp" />
+    <ClCompile Include="PBwindowImp.cpp" />
+    <ClCompile Include="StrHash.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="allocMemoryPool.cpp" />
-    <ClCompile Include="base.cpp" />
+    <ClInclude Include="..\include\base\PBbase.h" />
+    <ClInclude Include="..\include\base\PBdebugHelper.h" />
+    <ClInclude Include="..\include\base\PBlist.hpp" />
+    <ClInclude Include="..\include\base\PBmath.h" />
+    <ClInclude Include="..\include\base\PBmemAllocationPool.h" />
+    <ClInclude Include="..\include\base\PBobject.h" />
+    <ClInclude Include="..\include\base\PBplatform.h" />
+    <ClInclude Include="..\include\base\PBref.h" />
+    <ClInclude Include="..\include\base\PBrefptr.h" />
+    <ClInclude Include="..\include\base\PBstring.h" />
+    <ClInclude Include="..\include\base\PBtree.hpp" />
+    <ClInclude Include="..\include\base\PBtypes.h" />
+    <ClInclude Include="..\include\base\PBwindow.h" />
+    <ClInclude Include="..\include\base\_baseExport.h" />
+    <ClInclude Include="..\include\PBdefine.h" />
+    <ClInclude Include="PBmemAllocation.h" />
+    <ClInclude Include="PBwindowImp.h" />
+    <ClInclude Include="StrHash.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

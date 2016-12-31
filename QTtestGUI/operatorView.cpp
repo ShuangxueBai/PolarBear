@@ -1,6 +1,4 @@
 #include "stdafx.h"
-#include <QtGui/QStackedWidget>
-#include <QtGui/QHBoxLayout>
 #include "operatorView.h"
 
 

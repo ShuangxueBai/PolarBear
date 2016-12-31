@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include <QtGui/QSplitter>
 #include "TestCentralWidget.h"
 #include "graphicView.h"
 #include "operatorView.h"

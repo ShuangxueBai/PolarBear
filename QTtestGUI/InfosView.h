@@ -2,7 +2,7 @@
 #ifndef POLAR_BEAR_TEST_INFOS_VIEW_H
 #define POLAR_BEAR_TEST_INFOS_VIEW_H
 
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 class InfosView : public QWidget
 {

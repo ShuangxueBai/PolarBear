@@ -1,95 +1,206 @@
 #include "precompile.h"
-#include "assimp/cimport.h"
-#include "assimp/scene.h"
-#include "assimp/postprocess.h"
 
-using namespace std;
+POLAR_BEAR_USE_NAMESPACE;
 
-static void error_callBack(int error, const char* description)
-{
-	fputs(description, stderr);
-}
+using std::cin;
+using std::cout;
+using std::endl;
 
-static void key_callBack(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, GL_TRUE);
-	if (key == GLFW_KEY_F && action == GLFW_PRESS)
-		glfwSetWindowSize(window, 640, 480);
-	if (key == GLFW_KEY_G && action == GLFW_PRESS)
-	{
-		GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
-		if (primaryMonitor)
-		{
-			const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
-			glfwSetWindowSize(window, mode->width, mode->height);
-		}
-	}
-}
+
+#define DEBUG_OUT_ITEM { \
+     cout << "Enter any one...." << endl; \
+     cin.clear(); \
+     cin.get();    \
+     cin.sync(); }
+
+
+#if 0
 
 int main(int argc, char** argv)
 {
 
-	GLFWwindow* window = nullptr;
 
-	glfwSetErrorCallback(error_callBack);
-
-	if (!glfwInit())
-		return -1;
-
-	GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
-	if (!primaryMonitor)
+	PBobject* mainP = new PBobject();
+	if (1)
 	{
-		glfwTerminate();
-		return -1;
+		PBrefPtr<PBobject> p = mainP;
+		cout << p->getReferenceCount() << endl;
+		PBrefPtr<PBobject> p2 = p;
+		cout << p->getReferenceCount() << endl;
+		cout << p2->getReferenceCount() << endl;
 	}
 
-	const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
-	glfwWindowHint(GLFW_RED_BITS, mode->redBits);
-	glfwWindowHint(GLFW_GREEN_BITS, mode->greenBits);
-	glfwWindowHint(GLFW_BLUE_BITS, mode->blueBits);
-	glfwWindowHint(GLFW_REFRESH_RATE, mode->refreshRate);
-
-	const int w = mode->width;
-	const int h = mode->height;
+	cout << mainP->getReferenceCount() << endl;
+	if (mainP)
+		delete mainP;
+	mainP = nullptr;
 
 
-	window = glfwCreateWindow(w, h, "Hello World", nullptr, nullptr);
-	if (!window)
-	{
-		glfwTerminate();
-		return -1;
-	}
+	//test memory allocate
+	InitMemAllocPool();
 
-	glfwMakeContextCurrent(window);
+	pbvoidpt pBuffer = nullptr;
+	pBuffer = MemoryAlloc(512);
 
-	glfwSetKeyCallback(window, key_callBack);
+	memset(pBuffer, 0, 512);
+	MemoryFree(pBuffer);
 
-	GLenum err = glewInit();
-	if (GLEW_OK != err)
-	{
-		glfwTerminate();
-		return -1;
-	}
+	DestroyMemAllocPool();
 
-
-	while (!glfwWindowShouldClose(window))
-	{
-		glfwSwapBuffers(window);
-		glfwPollEvents();
-	}
-	glfwTerminate();
-
-	cout << "tests project terminated!" << endl;
-	cin.clear();
-	cin.sync();
-	cin.get();
+	DEBUG_OUT_ITEM
 	return 0;
+}
 
+#endif
+
+
+#if 0
+
+#include <string>
+#include <future>
+#include <iostream>
+#include <functional>
+#include <thread>
+#include <chrono>
+using namespace std;
+
+int countdown(int from, int to)
+{
+	for (int i=from; i!=to; ++i)
+	{
+		std::cout << i << '\n';
+		std::this_thread::sleep_for(std::chrono::seconds(1));
+	}//end for
+	std::cout << "Lift off!\n";
+	return from - to;
+}
+
+int main(int argv, char** argc)
+{
+	std::packaged_task<int(int, int)> tsk(countdown);
+	std::future<int> ret = tsk.get_future();
+
+	std::thread th(std::move(tsk), 10, 0);
+
+	int value = ret.get();
+
+	std::cout << "The countdown lasted for " << value << " seconds. \n";
+
+	th.join();
+
+	DEBUG_OUT_ITEM;
+	return 0;
+}
+
+#endif
+
+#if 0
+
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <chrono>
+#include <future>
+
+using namespace std;
+
+bool is_prime(int x) {
+	for (int i = 2; i < x; ++i) if (x%i == 0) return false;
+	return true;
+}
+
+int main()
+{
+
+	std::future<bool> fut = std::async(is_prime, 4444333322);
+
+	cout << "checking please wait " << endl;
+	chrono::milliseconds span(100);
+	while (fut.wait_for(span) == std::future_status::timeout)
+	{
+		cout << '.' << std::flush;
+	}//end while
+
+	bool x = fut.get();
+
+	cout << "\n 4444333322 " << (x ? "is" : "is not") << "prime. \n";
+	return 0;
+}
+
+#endif
+
+#if 0
+
+#include <iostream>
+#include <future>
+#include <chrono>
+
+using namespace std;
+
+int get_value() { return 10; }
+
+int main()
+{
+	std::future<int> fut = std::async(get_value);
+	std::shared_future<int> shfut = fut.share();
+
+	cout << "value" << shfut.get() << '\n';
+	cout << "its double: " << shfut.get() * 2 << '\n';
+	return 0;
+}
+
+#endif
+
+#if 0
+
+#include <iostream>
+#include <thread>
+#include <chrono>
+#include <future>
+#include <mutex>
+#include <condition_variable>
+#include <atomic>
+
+using namespace std;
+
+
+std::mutex mtx;
+std::condition_variable cv;
+bool ready = false;
+
+void print_id(int id) {
+	std::unique_lock<std::mutex> lck(mtx);
+	while (!ready)
+	{
+		cv.wait(lck);
+	}//end while
+	std::cout << "thread" << id << endl;
+}
+
+void go() {
+	std::unique_lock<std::mutex> lck(mtx);
+	std::notify_all_at_thread_exit(cv, std::move(lck));
+	ready = true;
+	cv.notify_all();
+}
+
+int main()
+{
+	std::thread threads[10];
+
+	for (int i=0; i<10; ++i)
+	{
+		threads[i] = std::thread(print_id, i);
+	}
+
+	std::cout << "10 threads ready to race... \n";
+	std::thread(go).detach();
+	for (auto& th : threads) th.join();
+	return 0;
 }
 
 
-
+#endif
 
 
 

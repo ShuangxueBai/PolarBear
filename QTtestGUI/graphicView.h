@@ -1,7 +1,8 @@
 #ifndef GRAPHIC_VIEW_H
 #define GRAPHIC_VIEW_H
 
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QGroupBox>
 
 class GraphicView : public QWidget
 {

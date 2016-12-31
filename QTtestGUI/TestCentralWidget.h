@@ -3,8 +3,13 @@
 #ifndef POLAR_BEAR_TEST_CENTRAL_WIDGET_H
 #define POLAR_BEAR_TEST_CENTRAL_WIDGET_H
 
-#include <QtGui/QWidget>
-class QSplitter;
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QSplitter>
+
+
+class OperatorView;
+class GraphicView;
+class InfosView;
 class TestCentralWidget : public QWidget
 {
 	Q_OBJECT
@@ -16,9 +21,9 @@ protected:
 	void initGui();
 	virtual void resizeEvent(QResizeEvent *e);
 private:
-	QWidget* m_pOperatorView;
-	QWidget* m_pGraphicView;
-	QWidget* m_pInfosView;
+	OperatorView* m_pOperatorView;
+	GraphicView* m_pGraphicView;
+	InfosView* m_pInfosView;
 
 	QSplitter* m_pHorSplitter;
 	QSplitter* m_pVerSplitter;

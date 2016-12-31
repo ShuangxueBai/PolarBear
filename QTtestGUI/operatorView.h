@@ -1,9 +1,10 @@
 #ifndef OPERATOR_VIEW_H
 #define OPERATOR_VIEW_H
-#include <QtGui/QWidget>
-#include <QtGui/QTabWidget>
 
-class QGroupBox;
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QStackedWidget>
+
 //////////////////////////////////////////////////////////////////////////
 class OperatorTabView : public QTabWidget
 {
@@ -17,7 +18,6 @@ protected:
 };
 
 
-class QStackedWidget;
 //////////////////////////////////////////////////////////////////////////
 class OperatorView : public QWidget
 {

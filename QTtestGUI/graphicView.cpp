@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include <QtGui/QHBoxLayout>
 #include "graphicView.h"
 
 GraphicView::GraphicView(QWidget* parent /* = nullptr */)

@@ -89,6 +89,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_TestCentralWidget.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="DarkLightStyle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="qttestgui.qrc">
@@ -112,6 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DarkLightStyle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

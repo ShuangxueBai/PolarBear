@@ -1,5 +1,5 @@
 #pragma once
-#include <QtGui/QMainWindow>
+#include <QtWidgets/QMainWindow>
 
 class TestCentralWidget;
 class TestMainWidget : public QMainWindow 
@@ -12,7 +12,7 @@ public:
 protected:
 	void initGUI();
 private:
-	TestCentralWidget* m_pCentralWidget;
+	TestCentralWidget* m_pCentralWidget = nullptr;
 };
 
 
