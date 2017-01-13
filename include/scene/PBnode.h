@@ -5,7 +5,6 @@
 #include "PBdefine.h"
 #include "scene/_sceneExport.h"
 #include "base/PBbase.h"
-using std::vector;
 
 POLAR_BEAR_BEGIN
 
@@ -40,8 +39,11 @@ public:
 protected:
 
 	bool _isDraw;
+	std::string _id;
+
+	PBrefPtr<PBmotion> _motion;
 	PBrefPtr<PBresource> _resource;
-	vector<PBrefPtr<PBnode>> _nodes;
+	std::vector<PBrefPtr<PBnode>> _nodes;
 };
 
 

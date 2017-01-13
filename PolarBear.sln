@@ -44,6 +44,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PBscene", "PBscene\PBscene.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PBUnitTestProject", "PBUnitTestProject\PBUnitTestProject.vcxproj", "{5418121A-3A8F-412F-8E7D-6BC9BABFC040}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PBmotion", "PBmotion\PBmotion.vcxproj", "{55DA5FED-FB40-420D-9B98-6F6AFEDA8ADB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -211,6 +213,18 @@ Global
 		{5418121A-3A8F-412F-8E7D-6BC9BABFC040}.Release|Win32.Build.0 = Release|Win32
 		{5418121A-3A8F-412F-8E7D-6BC9BABFC040}.Release|x64.ActiveCfg = Release|x64
 		{5418121A-3A8F-412F-8E7D-6BC9BABFC040}.Release|x64.Build.0 = Release|x64
+		{55DA5FED-FB40-420D-9B98-6F6AFEDA8ADB}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{55DA5FED-FB40-420D-9B98-6F6AFEDA8ADB}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{55DA5FED-FB40-420D-9B98-6F6AFEDA8ADB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{55DA5FED-FB40-420D-9B98-6F6AFEDA8ADB}.Debug|Win32.Build.0 = Debug|Win32
+		{55DA5FED-FB40-420D-9B98-6F6AFEDA8ADB}.Debug|x64.ActiveCfg = Debug|x64
+		{55DA5FED-FB40-420D-9B98-6F6AFEDA8ADB}.Debug|x64.Build.0 = Debug|x64
+		{55DA5FED-FB40-420D-9B98-6F6AFEDA8ADB}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{55DA5FED-FB40-420D-9B98-6F6AFEDA8ADB}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{55DA5FED-FB40-420D-9B98-6F6AFEDA8ADB}.Release|Win32.ActiveCfg = Release|Win32
+		{55DA5FED-FB40-420D-9B98-6F6AFEDA8ADB}.Release|Win32.Build.0 = Release|Win32
+		{55DA5FED-FB40-420D-9B98-6F6AFEDA8ADB}.Release|x64.ActiveCfg = Release|x64
+		{55DA5FED-FB40-420D-9B98-6F6AFEDA8ADB}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
