@@ -4,10 +4,6 @@
 
 #include "base/PBplatform.h"
 
-typedef char pbchar;
-typedef short pbshort;
-typedef int pbint;
-typedef long pblong;
 typedef long long pbllong;
 
 typedef unsigned char pbuchar;
@@ -16,14 +12,12 @@ typedef unsigned int pbuint;
 typedef unsigned long pbulong;
 typedef unsigned long long pbullong;
 
-typedef float pbfloat;
-typedef double pbdouble;
 
 #if defined(PB_OS_WIN)
 
-typedef pbchar  pbint8;
-typedef pbshort pbint16;
-typedef pbint   pbint32;
+typedef char  pbint8;
+typedef short pbint16;
+typedef long   pbint32;
 typedef pbllong pbint64;
 
 typedef pbuchar  pbuint8;

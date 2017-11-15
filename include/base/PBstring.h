@@ -2,6 +2,7 @@
 #ifndef POLAR_BEAR_STRING_H
 #define POLAR_BEAR_STRING_H
 #include "PBdefine.h"
+#include "base/PBtypes.h"
 
 POLAR_BEAR_BEGIN
 
@@ -12,8 +13,7 @@ public:
 	~PBchar();
 
 private:
-	unsigned short _c;
-
+	pbushort _c;
 };
 
 
