@@ -6,15 +6,9 @@
 #define POLAR_BEAR_END }
 #define POLAR_BEAR_USE_NAMESPACE using namespace PolarBear
 
-#define PB_DELETE_PTR(x) \
-	do {                 \
-	if(x)                \
-	{                    \
-	   delete x;         \
-	}                    \
-	x = nullptr;         \
-	} while (0);         \
+#define PB_DELETE_PTR(x) do { if(x){ delete x; } x = nullptr; }while (0)         
 
+#define PB_DELETE_ARRAY(x) do { if(x) { delete[] x; } x = nullptr; }while (0)
 
 #define PB_TEXT(s) #s
 
@@ -55,14 +49,9 @@
 #define PB_CLASS_GET_PROPERTY_PTR(type, name) \
     type##* get##name##() { return &_##name##; }
 
+#define PB_DECLARE_CLASS(className) class className
+#define PB_DECLARE_STRUCT(structName) struct structName
 
-typedef unsigned char uchar;
-typedef unsigned short ushort;
-typedef unsigned int uint;
-typedef unsigned long ulong;
-typedef unsigned long long ullong;
 
-typedef void pbvoid;
-typedef void* pbvoidpt;
 
 #endif

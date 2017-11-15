@@ -11,18 +11,18 @@ bool InitMemAllocPool()
 	return (nullptr != g_ptrMemAlloc);
 }
 
-pbvoid DestroyMemAllocPool()
+void DestroyMemAllocPool()
 {
-	PB_DELETE_PTR(g_ptrMemAlloc)
+	PB_DELETE_PTR(g_ptrMemAlloc);
 	return;
 }
 
-pbvoidpt MemoryAlloc(const ulong size)
+void* MemoryAlloc(const pbulong size)
 {
 	return g_ptrMemAlloc->memoryAllocation(size);
 }
 
-pbvoid MemoryFree(pbvoidpt buffer)
+void MemoryFree(void* buffer)
 {
 	g_ptrMemAlloc->memoryfree(buffer);
 	return;

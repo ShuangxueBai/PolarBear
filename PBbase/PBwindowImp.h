@@ -5,6 +5,7 @@
 #include <functional>
 #include "PBdefine.h"
 #include "glfw/glfw3.h"
+#include "base/PBtypes.h"
 
 POLAR_BEAR_BEGIN
 
@@ -19,7 +20,7 @@ public:
 	static void SetContextWindow(GLFWwindow* window);
 	static GLFWwindow* GetContextWindow();
 
-	PBwindowImp(const unsigned int w, const unsigned int h, const char* title = nullptr);
+	PBwindowImp(const pbuint w, const pbuint h, const char* title = nullptr);
 	~PBwindowImp();
 
 	void makeContextWindow();

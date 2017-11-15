@@ -2,9 +2,10 @@
 #ifndef POLAR_BEAR_WINDOW_H
 #define POLAR_BEAR_WINDOW_H
 
-#include "base/_baseExport.h"
-#include "PBdefine.h"
 #include <functional>
+#include "PBdefine.h"
+#include "base/_baseExport.h"
+#include "base/PBtypes.h"
 
 POLAR_BEAR_BEGIN
 
@@ -13,7 +14,7 @@ class BASE_EXT PBwindow
 {
 public:
 
-	static PBwindow* Create(const unsigned int w = 600, const unsigned int h = 400, const char* title = nullptr);
+	static PBwindow* Create(const pbuint w = 600, const pbuint h = 400, const char* title = nullptr);
 	static int Init();
 	static void Terminate();
 	static void MainLoop();
@@ -22,7 +23,7 @@ public:
 	void makeContextWindow();
 	~PBwindow();
 protected:
-	PBwindow(const unsigned int w = 600, const unsigned int h = 400, const char* title = nullptr);
+	PBwindow(const pbuint w = 600, const pbuint h = 400, const char* title = nullptr);
 private:
 	PBwindowImp* _imp;
 };

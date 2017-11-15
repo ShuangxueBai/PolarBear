@@ -36,7 +36,7 @@ PBwindow::PBwindow(const unsigned int w /* = 600 */, const unsigned int h /* = 4
 
 PBwindow::~PBwindow()
 {
-	PB_DELETE_PTR(_imp)
+	PB_DELETE_PTR(_imp);
 }
 
 void PBwindow::makeContextWindow()

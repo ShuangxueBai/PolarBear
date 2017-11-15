@@ -20,8 +20,8 @@ public:
 	MemoryAllocationPool();
 	~MemoryAllocationPool();
 
-	pbvoidpt memoryAllocation(const ulong size);
-	pbvoid memoryfree(pbvoidpt buffer);
+	void* memoryAllocation(const pbulong size);
+	void memoryfree(void* buffer);
 
 private:
 	size_t _allocated;

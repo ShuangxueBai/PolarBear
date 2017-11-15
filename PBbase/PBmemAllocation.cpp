@@ -30,12 +30,12 @@ MemoryAllocationPool::~MemoryAllocationPool()
 	return;
 }
 
-pbvoidpt MemoryAllocationPool::memoryAllocation(const ulong size)
+void* MemoryAllocationPool::memoryAllocation(const pbulong size)
 {
 	return je_malloc(static_cast<size_t>(size));
 }
 
-pbvoid MemoryAllocationPool::memoryfree(pbvoidpt buffer)
+void MemoryAllocationPool::memoryfree(void* buffer)
 {
 	je_free(buffer);
 	return;

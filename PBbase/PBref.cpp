@@ -32,7 +32,7 @@ void PBref::release()
 	}
 }
 
-unsigned int PBref::getReferenceCount() const
+pbuint PBref::getReferenceCount() const
 {
 	return _ref;
 }
