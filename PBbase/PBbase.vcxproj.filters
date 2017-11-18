@@ -107,5 +107,11 @@
     <ClInclude Include="..\include\base\PBlist.hpp">
       <Filter>Interface</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\base\PBunknown.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\base\PBerrorCode.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

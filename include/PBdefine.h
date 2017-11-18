@@ -12,6 +12,8 @@
 
 #define PB_TEXT(s) #s
 
+#define PB_INTERFACE struct
+
 #define PB_DECLARE_NO_COPY(classname) \
 	classname(const classname& other) = delete; \
 	classname& operator=(const classname& other) = delete;

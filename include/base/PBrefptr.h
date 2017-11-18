@@ -2,28 +2,28 @@
 #define POLAR_BEAR_REF_PTR_H
 
 #include <type_traits>
-#include "base/PBref.h"
+#include "base/PBobject.h"
 
 POLAR_BEAR_BEGIN
 
 #define PB_REF_PTR_SAFE_RETAIN(ptr) \
 	do{ \
 	 if(ptr){\
-	   const_cast<PBref*>(static_cast<const PBref*>(ptr))->retain(); \
+	   const_cast<PBobject*>(static_cast<const PBobject*>(ptr))->retain(); \
 	 	 	 } \
 			} while (0)\
 
 #define PB_REF_PTR_SAFE_RELEASE(ptr)\
 	do{ \
 	   if(ptr){\
-	   const_cast<PBref*>(static_cast<const PBref*>(ptr))->release(); \
+	   const_cast<PBobject*>(static_cast<const PBobject*>(ptr))->release(); \
 	   	   	   	   	   }\
 					}while(0)\
 
 #define PB_REF_PTR_SAFE_RELEASE_NULL(ptr)\
 	do{\
 	 if(ptr){\
-	 const_cast<PBref*>(static_cast<const PBref*>(ptr))->release(); \
+	 const_cast<PBobject*>(static_cast<const PBobject*>(ptr))->release(); \
 	 ptr = nullptr;\
 	 	 	 }\
 			}while(0)\
@@ -68,7 +68,7 @@ public:
 	{
 		if (this != &other)
 		{
-			PBref* pTmp = _pRef;
+			T* pTmp = _pRef;
 			_pRef = other._pRef;
 			other._pRef = pTmp;
 		}
@@ -247,7 +247,7 @@ public:
 	}
 
 private:
-	PBref* _pRef;
+	T* _pRef;
 };
 
 POLAR_BEAR_END

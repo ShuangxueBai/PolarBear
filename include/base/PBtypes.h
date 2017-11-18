@@ -4,6 +4,7 @@
 
 #include "base/PBplatform.h"
 
+
 typedef long long pbllong;
 
 typedef unsigned char pbuchar;
@@ -22,7 +23,7 @@ typedef pbllong pbint64;
 
 typedef pbuchar  pbuint8;
 typedef pbushort pbuint16;
-typedef pbuint   pbuint32;
+typedef pbulong   pbuint32;
 typedef pbullong pbuint64;
 
 #elif defined(PB_OS_MAC)
@@ -34,6 +35,10 @@ typedef pbullong pbuint64;
 #endif
 
 typedef pbuint8 pbbyte;
+
+typedef pbuint32 pbresult;
+
+typedef pbulong pbIID;
 
 #endif
 
