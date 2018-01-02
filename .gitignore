@@ -187,3 +187,6 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+.vs/config/applicationhost.config
+.vs/PolarBear/v15/Browse.VC.db
+.vs/PolarBear/v15/Solution.VC.db

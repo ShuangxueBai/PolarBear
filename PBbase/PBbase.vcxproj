@@ -178,7 +178,6 @@
     <ClCompile Include="PBmemAllocation.cpp" />
     <ClCompile Include="PBmemAllocationPool.cpp" />
     <ClCompile Include="PBobject.cpp" />
-    <ClCompile Include="PBref.cpp" />
     <ClCompile Include="PBstring.cpp" />
     <ClCompile Include="PBwindow.cpp" />
     <ClCompile Include="PBwindowImp.cpp" />
@@ -193,7 +192,6 @@
     <ClInclude Include="..\include\base\PBmemAllocationPool.h" />
     <ClInclude Include="..\include\base\PBobject.h" />
     <ClInclude Include="..\include\base\PBplatform.h" />
-    <ClInclude Include="..\include\base\PBref.h" />
     <ClInclude Include="..\include\base\PBrefptr.h" />
     <ClInclude Include="..\include\base\PBstring.h" />
     <ClInclude Include="..\include\base\PBtree.hpp" />

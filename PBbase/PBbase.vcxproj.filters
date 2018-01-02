@@ -24,9 +24,6 @@
     <ClCompile Include="PBobject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PBref.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="StrHash.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -63,9 +60,6 @@
       <Filter>Interface</Filter>
     </ClInclude>
     <ClInclude Include="..\include\base\PBplatform.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\base\PBref.h">
       <Filter>Interface</Filter>
     </ClInclude>
     <ClInclude Include="..\include\base\PBrefptr.h">
