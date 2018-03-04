@@ -30,9 +30,6 @@
     <ClCompile Include="PBdebugHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PBstring.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PBmemAllocation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -72,9 +69,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\base\PBdebugHelper.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\base\PBstring.h">
       <Filter>Interface</Filter>
     </ClInclude>
     <ClInclude Include="..\include\base\PBmemAllocationPool.h">
