@@ -178,8 +178,6 @@
     <ClCompile Include="PBmemAllocation.cpp" />
     <ClCompile Include="PBmemAllocationPool.cpp" />
     <ClCompile Include="PBobject.cpp" />
-    <ClCompile Include="PBref.cpp" />
-    <ClCompile Include="PBstring.cpp" />
     <ClCompile Include="PBwindow.cpp" />
     <ClCompile Include="PBwindowImp.cpp" />
     <ClCompile Include="StrHash.cpp" />
@@ -187,16 +185,16 @@
   <ItemGroup>
     <ClInclude Include="..\include\base\PBbase.h" />
     <ClInclude Include="..\include\base\PBdebugHelper.h" />
+    <ClInclude Include="..\include\base\PBerrorCode.h" />
     <ClInclude Include="..\include\base\PBlist.hpp" />
     <ClInclude Include="..\include\base\PBmath.h" />
     <ClInclude Include="..\include\base\PBmemAllocationPool.h" />
     <ClInclude Include="..\include\base\PBobject.h" />
     <ClInclude Include="..\include\base\PBplatform.h" />
-    <ClInclude Include="..\include\base\PBref.h" />
     <ClInclude Include="..\include\base\PBrefptr.h" />
-    <ClInclude Include="..\include\base\PBstring.h" />
     <ClInclude Include="..\include\base\PBtree.hpp" />
     <ClInclude Include="..\include\base\PBtypes.h" />
+    <ClInclude Include="..\include\base\PBunknown.h" />
     <ClInclude Include="..\include\base\PBwindow.h" />
     <ClInclude Include="..\include\base\_baseExport.h" />
     <ClInclude Include="..\include\PBdefine.h" />
